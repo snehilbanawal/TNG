@@ -44,14 +44,15 @@
             services.
           </p>
         </div>
-        <form action="" method="POST">
+        <form action="{% url 'feedbackform' %}" method="POST">
+          {% csrf_token %}
           <div class="form-group">
             <label>How would you rate our <span>services</span>?</label>
             <div class="rating-emojis">
               <label for="rating1">
                 <input
                   type="radio"
-                  name="rating"
+                  name="ratingg"
                   id="rating1"
                   value="1"
                   required
@@ -61,7 +62,7 @@
               <label for="rating2">
                 <input
                   type="radio"
-                  name="rating"
+                  name="ratingg"
                   id="rating2"
                   value="2"
                   required
@@ -71,7 +72,7 @@
               <label for="rating3">
                 <input
                   type="radio"
-                  name="rating"
+                  name="ratingg"
                   id="rating3"
                   value="3"
                   required
@@ -81,7 +82,7 @@
               <label for="rating4">
                 <input
                   type="radio"
-                  name="rating"
+                  name="ratingg"
                   id="rating4"
                   value="4"
                   required
@@ -91,7 +92,7 @@
               <label for="rating5">
                 <input
                   type="radio"
-                  name="rating"
+                  name="ratingg"
                   id="rating5"
                   value="5"
                   required
@@ -106,18 +107,18 @@
               family?
             </label>
             <div class="rating-input">
-              <input type="radio" id="yes" name="recommendation" value="Yes" />
+              <input type="radio" id="yes" name="recommendation1" value="Yes" />
               <label for="yes">Yes</label>
 
               <input
                 type="radio"
                 id="maybe"
-                name="recommendation"
+                name="recommendation1"
                 value="Maybe"
               />
               <label for="maybe">Maybe</label>
 
-              <input type="radio" id="no" name="recommendation" value="No" />
+              <input type="radio" id="no" name="recommendation1" value="No" />
               <label for="no">No</label>
             </div>
           </div>
@@ -127,12 +128,12 @@
             </label>
             <div class="rating-input">
               <!-- <input type="text" class="form-control" id="recommend" required /> -->
-              <input type="radio" id="yes" name="expectation" value="Yes" />
+              <input type="radio" id="yes" name="service1" value="Yes" />
               <label for="yes">As expected</label>
-              <input type="radio" id="maybe" name="expectation" value="Maybe" />
+              <input type="radio" id="maybe" name="service1" value="Maybe" />
               <label for="maybe">Somewhat</label>
 
-              <input type="radio" id="no" name="expectation" value="No" />
+              <input type="radio" id="no" name="service1" value="No" />
               <label for="no">Not at all</label>
             </div>
           </div>
@@ -142,7 +143,7 @@
               here?
             </label>
             <textarea
-              name="experience"
+              name="message1"
               id="experience"
               class="form-control"
             ></textarea>
