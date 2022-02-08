@@ -52,7 +52,8 @@
         <div class="cashback-header">
           <h1>Cashback Panel</h1>
         </div>
-        <form action="" method="POST">
+        <form action="{% url 'cashbackform' %}" method="POST">
+          {% csrf_token %}
           <!-- user dropdown - user id(email)
           No. of products
           Cashback amount
@@ -61,6 +62,7 @@
             <label>Select User:</label>
             <input
               type="text"
+              name="name1"
               class="form-control"
               id="select-user"
               placeholder="Enter User E-mail ID"
@@ -94,6 +96,7 @@
               type="number"
               class="form-control"
               id="no-of-products"
+              name="num1"
               placeholder="Enter No. of Products"
               required
             />
@@ -104,6 +107,7 @@
               type="number"
               class="form-control"
               id="cashback-amount"
+              name="amount1"
               placeholder="Enter Cashback Amount"
               required
             />
