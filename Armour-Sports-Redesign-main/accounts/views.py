@@ -184,7 +184,7 @@ def myorders(request):
 
 @login_required(login_url='login')
 def mypayments(request):
-    
+
     payments = Payment.objects.filter(user=request.user)
     return render(request, 'accounts/mypayments.html', {'payments': payments})
 
@@ -195,7 +195,7 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('dashboard')
+            return redirect('/')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
