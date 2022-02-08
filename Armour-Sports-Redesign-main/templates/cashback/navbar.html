@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css1/global.css' %}"/>
+<link rel="stylesheet" href="{% static 'css1/nav.css' %}" />
+<nav class="">
+    <div class="container nav-container">
+      <div class="nav-logo">
+        <a href="{% url 'home' %}">
+          <h1>TnG Clinic</h1>
+        </a>
+      </div>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-button">
+          <span class="btn btn-outline">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+        <div class="nav-dropdown-content">
+          <a href="{% url 'login' %}" class="btn btn-outline">LogIn</a>
+          <a href="{% url 'signup' %}" class="btn btn-outline">SignUp</a>
+          <a href="{% url 'cashback' %}" class="btn btn-outline">Cashback</a>
+        </div>
+      </div>
+    </div>
+  </nav>

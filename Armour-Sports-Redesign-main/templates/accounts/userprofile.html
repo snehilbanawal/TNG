@@ -1,0 +1,70 @@
+{%extends 'accounts/dashboard-base.html'%} {%load static%}
+<!--  -->
+{%block main%}
+<div class="col-md-8">
+    <div class="card mb-3">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0" style="padding-left: 0rem!important;">First Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <p>{{user.first_name}}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0" style="padding-left: 2rem!important;">Last Name</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                <p>{{user.last_name}}</p>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0" style="padding-left: 2rem!important;">User Name</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                <p>{{user.username}}</p>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0" style="padding-left: 2rem!important;">Email</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                <p>{{user.username}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0" style="padding-left: 2rem!important;">Phone</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                <p>{{user.phone_number}}</p>
+            </div>
+        </div>
+        <!-- <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Sex</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control" name="sex_field" value="{{user.sex}}">
+                            </div>
+                        </div> -->
+        <hr>
+        <br>
+    </div>
+</div>
+{%endblock%}

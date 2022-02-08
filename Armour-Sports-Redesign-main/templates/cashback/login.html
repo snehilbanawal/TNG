@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css1/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css1/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css1/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css1/login.css' %}" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navbar starts here -->
+    <nav class="">
+      <div class="container nav-container">
+        <div class="nav-logo">
+          <a href="{% url 'home' %}">
+            <h1>TnG Clinic</h1>
+          </a>
+        </div>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-button">
+            <span class="btn btn-outline">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="{% url 'login' %}" class="btn btn-outline">LogIn</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline">SignUp</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar ends here -->
+    <section class="section-content">
+      <!-- ============================ COMPONENT LOGIN   ================================= -->
+      <div class="login-container container d-flex align-items-center justify-content-center flex-column" style="min-height: 80vh;">
+    
+      {% if request.GET.command == 'verification' %}
+      <div
+        class="container mx-auto alert alert-info text-center"
+        role="alert"
+        style="max-width: 1024px; margin-top: 100px"
+      >
+        Thank you for registering with us. We have sent you a verification email to
+        your email address [{{ request.GET.email }}]
+        <br /><br />
+        Already verified? <a href="{% url 'login' %}">Login</a>
+      </div>
+    
+      {% else %}
+    
+      <div class="card" style="max-width: 600px; min-width: 360px">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Log In</h3>
+          {% include 'alerts.html' %}
+          <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email Address"
+                name="email"
+              />
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                name="password"
+              />
+            </div>
+            <!-- form-group// -->
+    
+           
+            </div>
+            <!-- form-group form-check .// -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-danger btn-block">Login</button>
+            </div>
+            <!-- form-group// -->
+          </form>
+        </div>
+        <!-- card-body.// -->
+      </div>
+      <!-- card .// -->
+    
+      <p class="mt-4">
+        Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+      </p>
+      <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+      {% endif %}
+      </div>
+    
+    </section>
+    <!-- Footer Starts Here -->
+    <section class="footer">
+      <footer class="container">
+        <div class="footer-logo">
+          <a href="index.html">
+            <h1>TnG Clinic</h1>
+          </a>
+          <span>&#9400;2022. All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <a href=""><i class="fas fa-phone-alt"></i>+91-98765XXXXX</a>
+        </div>
+      </footer>
+    </section>
+    <!-- Footer Starts Here -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js1/app.js' %}"></script>
+    <script src="{% static 'js1/animations.js' %}"></script>
+  </body>
+</html>
